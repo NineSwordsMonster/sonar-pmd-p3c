@@ -5,5 +5,4 @@
 
 -----
 
-<!-- (c) 2019 PMD -->
 Avoid creating deeply nested if-then statements since they are harder to read and error-prone to maintain.

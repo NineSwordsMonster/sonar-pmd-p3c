@@ -5,7 +5,6 @@
 
 -----
 
-<!-- (c) 2019 PMD -->
 Identifies a possible unsafe usage of a static field.
 
 <h2>Example:</h2>

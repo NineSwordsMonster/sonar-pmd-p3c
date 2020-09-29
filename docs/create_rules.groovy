@@ -5,7 +5,7 @@ println 'Creating markdown rule documentation'
 println '===================================='
 
 
-def ruleSourcePath = '../sonar-pmd-plugin/src/main/resources/org/sonar/l10n/pmd/rules'
+def ruleSourcePath = '../sonar-pmd-p3c-plugin/src/main/resources/org/sonar/l10n/pmd/rules'
 def ruleTargetPath = './rules'
 
 def createDeprecationWarning = {

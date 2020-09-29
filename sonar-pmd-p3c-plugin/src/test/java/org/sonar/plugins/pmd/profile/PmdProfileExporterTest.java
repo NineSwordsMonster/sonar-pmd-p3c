@@ -1,8 +1,7 @@
 /*
- * SonarQube PMD Plugin
- * Copyright (C) 2012-2020 SonarSource SA
- * mailto:info AT sonarsource DOT com
- *
+ * SonarQube PMD P3C Plugin
+ * Copyright (C) 2012-2020 NineSwordsMonster
+*
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -19,13 +18,6 @@
  */
 package org.sonar.plugins.pmd.profile;
 
-import java.io.IOException;
-import java.io.StringReader;
-import java.io.StringWriter;
-import java.io.Writer;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.google.common.base.CharMatcher;
 import org.assertj.core.api.Condition;
 import org.junit.jupiter.api.Test;
@@ -40,7 +32,14 @@ import org.sonar.api.server.rule.RulesDefinition.Param;
 import org.sonar.api.utils.ValidationMessages;
 import org.sonar.plugins.pmd.PmdConstants;
 import org.sonar.plugins.pmd.PmdTestUtils;
-import org.sonar.plugins.pmd.rule.PmdRulesDefinition;
+import org.sonar.plugins.pmd.rule.PmdP3cRulesDefinition;
+
+import java.io.IOException;
+import java.io.StringReader;
+import java.io.StringWriter;
+import java.io.Writer;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
@@ -57,7 +56,7 @@ class PmdProfileExporterTest {
     private final PmdProfileExporter exporter = new PmdProfileExporter();
 
     private static RulesProfile importProfile(String configuration) {
-        PmdRulesDefinition definition = new PmdRulesDefinition();
+        PmdP3cRulesDefinition definition = new PmdP3cRulesDefinition();
         RulesDefinition.Context context = new RulesDefinition.Context();
         definition.define(context);
         RulesDefinition.Repository repository = context.repository(PmdConstants.REPOSITORY_KEY);

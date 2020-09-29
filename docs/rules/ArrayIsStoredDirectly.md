@@ -5,5 +5,4 @@
 
 -----
 
-<!-- (c) 2019 PMD -->
 Constructors and methods receiving arrays should clone objects and store the copy. This prevents future changes from the user from affecting the original array.

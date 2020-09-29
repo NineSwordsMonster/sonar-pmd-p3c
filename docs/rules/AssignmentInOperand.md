@@ -5,7 +5,6 @@
 
 -----
 
-<!-- (c) 2019 PMD -->
 Avoid assignments in operands; this can make code more complicated and harder to read.
 
 <h2>Example:</h2>

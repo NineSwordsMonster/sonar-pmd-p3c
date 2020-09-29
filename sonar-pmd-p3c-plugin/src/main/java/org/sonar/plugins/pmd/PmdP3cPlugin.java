@@ -1,8 +1,7 @@
 /*
- * SonarQube PMD Plugin
- * Copyright (C) 2012-2020 SonarSource SA
- * mailto:info AT sonarsource DOT com
- *
+ * SonarQube PMD P3C Plugin
+ * Copyright (C) 2012-2020 NineSwordsMonster
+*
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -23,13 +22,13 @@ import org.sonar.api.Plugin;
 import org.sonar.api.config.PropertyDefinition;
 import org.sonar.plugins.pmd.profile.PmdProfileExporter;
 import org.sonar.plugins.pmd.profile.PmdProfileImporter;
-import org.sonar.plugins.pmd.rule.PmdRulesDefinition;
+import org.sonar.plugins.pmd.rule.PmdP3cRulesDefinition;
 import org.sonar.plugins.pmd.rule.PmdUnitTestsRulesDefinition;
 
 /**
- * The {@link PmdPlugin} is the main entry-point of Sonar-PMD.
+ * The {@link PmdP3cPlugin} is the main entry-point of Sonar-PMD-P3C.
  */
-public class PmdPlugin implements Plugin {
+public class PmdP3cPlugin implements Plugin {
 
     @Override
     public void define(Context context) {
@@ -43,7 +42,7 @@ public class PmdPlugin implements Plugin {
                 PmdSensor.class,
                 PmdConfiguration.class,
                 PmdExecutor.class,
-                PmdRulesDefinition.class,
+                PmdP3cRulesDefinition.class,
                 PmdUnitTestsRulesDefinition.class,
                 PmdProfileExporter.class,
                 PmdProfileImporter.class,

@@ -1,8 +1,7 @@
 /*
- * SonarQube PMD Plugin Integration Test
- * Copyright (C) 2013-2020 SonarSource SA
- * mailto:info AT sonarsource DOT com
- *
+ * SonarQube PMD P3C Plugin Integration Test
+ * Copyright (C) 2013-2020 NineSwordsMonster
+*
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -90,7 +89,7 @@ public class PmdTestOrchestrator {
                         "sonar-java-plugin",
                         determineJavaPluginVersion()
                 ))
-                .addPlugin(byWildcardMavenFilename(new File("../sonar-pmd-plugin/target"), "sonar-pmd-plugin-*.jar"))
+                .addPlugin(byWildcardMavenFilename(new File("../sonar-pmd-p3c-plugin/target"), "sonar-pmd-p3c-plugin-*.jar"))
                 .addPlugin(byWildcardMavenFilename(new File("./target"), "integration-test-*.jar"))
                 .restoreProfileAtStartup(ofClasspath("/com/sonar/it/java/PmdTest/pmd-junit-rules.xml"))
                 .restoreProfileAtStartup(ofClasspath("/com/sonar/it/java/PmdTest/pmd-extensions-profile.xml"))

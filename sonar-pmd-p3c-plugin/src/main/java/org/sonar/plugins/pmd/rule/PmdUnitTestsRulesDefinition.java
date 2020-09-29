@@ -1,8 +1,7 @@
 /*
- * SonarQube PMD Plugin
- * Copyright (C) 2012-2020 SonarSource SA
- * mailto:info AT sonarsource DOT com
- *
+ * SonarQube PMD P3C Plugin
+ * Copyright (C) 2012-2020 NineSwordsMonster
+*
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -34,7 +33,7 @@ public final class PmdUnitTestsRulesDefinition implements RulesDefinition {
                 .createRepository(PmdConstants.TEST_REPOSITORY_KEY, PmdConstants.LANGUAGE_KEY)
                 .setName(PmdConstants.TEST_REPOSITORY_NAME);
 
-        PmdRulesDefinition.extractRulesData(repository, "/org/sonar/plugins/pmd/rules-unit-tests.xml", "/org/sonar/l10n/pmd/rules/pmd-unit-tests");
+        PmdP3cRulesDefinition.extractRulesData(repository, "/org/sonar/plugins/pmd/rules-unit-tests.xml", "/org/sonar/l10n/pmd/rules/pmd-unit-tests");
 
         repository.done();
     }

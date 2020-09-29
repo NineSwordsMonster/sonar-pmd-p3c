@@ -5,7 +5,6 @@
 
 -----
 
-<!-- (c) 2019 PMD -->
 <p>
   Avoid constants in interfaces. Interfaces should define types, constants are implementation details better placed in
   classes or enums.

@@ -1,8 +1,7 @@
 /*
- * SonarQube PMD Plugin
- * Copyright (C) 2012-2020 SonarSource SA
- * mailto:info AT sonarsource DOT com
- *
+ * SonarQube PMD P3C Plugin
+ * Copyright (C) 2012-2020 NineSwordsMonster
+*
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,16 +17,6 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 package org.sonar.plugins.pmd;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.StringWriter;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLClassLoader;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 import net.sourceforge.pmd.PMDVersion;
 import net.sourceforge.pmd.Report;
@@ -49,6 +38,16 @@ import org.sonar.api.utils.log.Profiler;
 import org.sonar.plugins.java.api.JavaResourceLocator;
 import org.sonar.plugins.pmd.xml.PmdRuleSet;
 import org.sonar.plugins.pmd.xml.PmdRuleSets;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.StringWriter;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLClassLoader;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @ScannerSide
 public class PmdExecutor {

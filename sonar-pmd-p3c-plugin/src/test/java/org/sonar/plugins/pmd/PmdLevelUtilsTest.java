@@ -1,8 +1,7 @@
 /*
- * SonarQube PMD Plugin
- * Copyright (C) 2012-2020 SonarSource SA
- * mailto:info AT sonarsource DOT com
- *
+ * SonarQube PMD P3C Plugin
+ * Copyright (C) 2012-2020 NineSwordsMonster
+*
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -19,9 +18,9 @@
  */
 package org.sonar.plugins.pmd;
 
-import java.lang.reflect.Constructor;
-
 import org.junit.jupiter.api.Test;
+
+import java.lang.reflect.Constructor;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.sonar.api.rules.RulePriority.BLOCKER;

@@ -1,8 +1,7 @@
 /*
- * SonarQube PMD Plugin
- * Copyright (C) 2012-2020 SonarSource SA
- * mailto:info AT sonarsource DOT com
- *
+ * SonarQube PMD P3C Plugin
+ * Copyright (C) 2012-2020 NineSwordsMonster
+*
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -19,34 +18,52 @@
  */
 package org.sonar.plugins.pmd;
 
-import java.util.List;
-
 import com.google.common.collect.Iterables;
 import org.junit.jupiter.api.Test;
 import org.sonar.api.PropertyType;
 import org.sonar.api.server.rule.RulesDefinition;
 import org.sonar.api.server.rule.RulesDefinition.Param;
 import org.sonar.api.server.rule.RulesDefinition.Rule;
-import org.sonar.plugins.pmd.rule.PmdRulesDefinition;
+import org.sonar.plugins.pmd.rule.PmdP3cRulesDefinition;
+
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class PmdRulesDefinitionTest {
+class PmdP3cRulesDefinitionTest {
 
     @Test
     void test() {
-        PmdRulesDefinition definition = new PmdRulesDefinition();
+        PmdP3cRulesDefinition definition = new PmdP3cRulesDefinition();
         RulesDefinition.Context context = new RulesDefinition.Context();
         definition.define(context);
-        RulesDefinition.Repository repository = context.repository(PmdConstants.REPOSITORY_KEY);
+        RulesDefinition.Repository pdmRepo = context.repository(PmdConstants.REPOSITORY_KEY);
+        RulesDefinition.Repository p3cRepo = context.repository(PmdConstants.REPOSITORY_P3C_KEY);
 
-        assertThat(repository.name()).isEqualTo(PmdConstants.REPOSITORY_NAME);
-        assertThat(repository.language()).isEqualTo(PmdConstants.LANGUAGE_KEY);
+        assertThat(pdmRepo.name()).isEqualTo(PmdConstants.REPOSITORY_NAME);
+        assertThat(pdmRepo.language()).isEqualTo(PmdConstants.LANGUAGE_KEY);
+        List<Rule> rules1 = pdmRepo.rules();
+        assertThat(rules1).hasSize(324);
+        for (Rule rule : rules1) {
+            assertThat(rule.key()).isNotNull();
+            assertThat(rule.internalKey()).isNotNull();
+            assertThat(rule.name()).isNotNull();
+            assertThat(rule.htmlDescription()).isNotNull();
+            assertThat(rule.severity()).isNotNull();
 
-        List<Rule> rules = repository.rules();
-        assertThat(rules).hasSize(324);
+            for (Param param : rule.params()) {
+                assertThat(param.name()).isNotNull();
+                assertThat(param.description())
+                        .overridingErrorMessage("Description is not set for parameter '" + param.name() + "' of rule '" + rule.key())
+                        .isNotNull();
+            }
+        }
 
-        for (Rule rule : rules) {
+        assertThat(p3cRepo.name()).isEqualTo(PmdConstants.REPOSITORY_NAME);
+        assertThat(p3cRepo.language()).isEqualTo(PmdConstants.LANGUAGE_KEY);
+        List<Rule> rules2 = p3cRepo.rules();
+        assertThat(rules2).hasSize(324);
+        for (Rule rule : rules2) {
             assertThat(rule.key()).isNotNull();
             assertThat(rule.internalKey()).isNotNull();
             assertThat(rule.name()).isNotNull();
@@ -64,7 +81,7 @@ class PmdRulesDefinitionTest {
 
     @Test
     void should_exclude_junit_rules() {
-        PmdRulesDefinition definition = new PmdRulesDefinition();
+        PmdP3cRulesDefinition definition = new PmdP3cRulesDefinition();
         RulesDefinition.Context context = new RulesDefinition.Context();
         definition.define(context);
         RulesDefinition.Repository repository = context.repository(PmdConstants.REPOSITORY_KEY);
@@ -72,17 +89,25 @@ class PmdRulesDefinitionTest {
         for (Rule rule : repository.rules()) {
             assertThat(rule.key()).doesNotContain("JUnitStaticSuite");
         }
+
+        RulesDefinition.Repository repository2 = context.repository(PmdConstants.REPOSITORY_P3C_KEY);
+
+        for (Rule rule : repository2.rules()) {
+            assertThat(rule.key()).doesNotContain("JUnitStaticSuite");
+        }
     }
 
     @Test
     void should_use_text_parameter_for_xpath_rule() {
-        PmdRulesDefinition definition = new PmdRulesDefinition();
+        PmdP3cRulesDefinition definition = new PmdP3cRulesDefinition();
         RulesDefinition.Context context = new RulesDefinition.Context();
         definition.define(context);
         RulesDefinition.Repository repository = context.repository(PmdConstants.REPOSITORY_KEY);
-
         Rule xpathRule = Iterables.find(repository.rules(), rule -> rule.key().equals("XPathRule"));
-
         assertThat(xpathRule.param("xpath").type().type()).isEqualTo(PropertyType.TEXT.name());
+
+        RulesDefinition.Repository repository2 = context.repository(PmdConstants.REPOSITORY_P3C_KEY);
+        Rule xpathRule2 = Iterables.find(repository2.rules(), rule -> rule.key().equals("XPathRule"));
+        assertThat(xpathRule2.param("xpath").type().type()).isEqualTo(PropertyType.TEXT.name());
     }
 }

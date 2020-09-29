@@ -5,7 +5,6 @@
 
 -----
 
-<!-- (c) 2019 PMD -->
 Avoid concatenating characters as strings in <code>StringBuffer</code>/<code>StringBuilder.append</code> methods.
 
 <h2>Noncompliant Code Example</h2>

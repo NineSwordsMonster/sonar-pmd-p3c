@@ -1,8 +1,7 @@
 /*
- * SonarQube PMD Plugin
- * Copyright (C) 2012-2020 SonarSource SA
- * mailto:info AT sonarsource DOT com
- *
+ * SonarQube PMD P3C Plugin
+ * Copyright (C) 2012-2020 NineSwordsMonster
+*
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -19,9 +18,6 @@
  */
 package org.sonar.plugins.pmd.xml;
 
-import java.io.IOException;
-import java.io.Reader;
-
 import org.sonar.api.batch.rule.ActiveRules;
 import org.sonar.api.profiles.RulesProfile;
 import org.sonar.api.utils.ValidationMessages;
@@ -31,6 +27,9 @@ import org.sonar.plugins.pmd.xml.factory.ActiveRulesRuleSetFactory;
 import org.sonar.plugins.pmd.xml.factory.RuleSetFactory;
 import org.sonar.plugins.pmd.xml.factory.RulesProfileRuleSetFactory;
 import org.sonar.plugins.pmd.xml.factory.XmlRuleSetFactory;
+
+import java.io.IOException;
+import java.io.Reader;
 
 /**
  * Convenience class that creates {@link PmdRuleSet} instances out of the given input.

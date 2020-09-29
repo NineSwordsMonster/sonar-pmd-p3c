@@ -1,8 +1,7 @@
 /*
- * SonarQube PMD Plugin
- * Copyright (C) 2012-2020 SonarSource SA
- * mailto:info AT sonarsource DOT com
- *
+ * SonarQube PMD P3C Plugin
+ * Copyright (C) 2012-2020 NineSwordsMonster
+*
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -18,14 +17,6 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 package org.sonar.plugins.pmd;
-
-import java.io.File;
-import java.net.URI;
-import java.net.URL;
-import java.net.URLClassLoader;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import com.google.common.collect.ImmutableList;
 import net.sourceforge.pmd.Report;
@@ -43,6 +34,14 @@ import org.sonar.api.batch.fs.internal.TestInputFileBuilder;
 import org.sonar.api.batch.rule.ActiveRules;
 import org.sonar.api.config.internal.MapSettings;
 import org.sonar.plugins.java.api.JavaResourceLocator;
+
+import java.io.File;
+import java.net.URI;
+import java.net.URL;
+import java.net.URLClassLoader;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
@@ -74,7 +73,7 @@ class PmdExecutorTest {
     private PmdExecutor pmdExecutor;
 
     private static DefaultInputFile file(String path, Type type) {
-        return TestInputFileBuilder.create("sonar-pmd-test", path)
+        return TestInputFileBuilder.create("sonar-pmd-p3c-test", path)
                 .setType(type)
                 .setLanguage(PmdConstants.LANGUAGE_KEY)
                 .build();

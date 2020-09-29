@@ -1,8 +1,7 @@
 /*
- * SonarQube PMD Plugin
- * Copyright (C) 2012-2020 SonarSource SA
- * mailto:info AT sonarsource DOT com
- *
+ * SonarQube PMD P3C Plugin
+ * Copyright (C) 2012-2020 NineSwordsMonster
+*
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -19,9 +18,6 @@
  */
 package org.sonar.plugins.pmd.xml.factory;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.sonar.api.profiles.RulesProfile;
 import org.sonar.api.rules.ActiveRule;
 import org.sonar.api.rules.ActiveRuleParam;
@@ -29,6 +25,9 @@ import org.sonar.plugins.pmd.PmdLevelUtils;
 import org.sonar.plugins.pmd.xml.PmdProperty;
 import org.sonar.plugins.pmd.xml.PmdRule;
 import org.sonar.plugins.pmd.xml.PmdRuleSet;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Factory class to create {@link org.sonar.plugins.pmd.xml.PmdRuleSet} out of {@link org.sonar.api.profiles.RulesProfile}.

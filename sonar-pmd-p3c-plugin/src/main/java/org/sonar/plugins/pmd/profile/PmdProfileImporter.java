@@ -1,8 +1,7 @@
 /*
- * SonarQube PMD Plugin
- * Copyright (C) 2012-2020 SonarSource SA
- * mailto:info AT sonarsource DOT com
- *
+ * SonarQube PMD P3C Plugin
+ * Copyright (C) 2012-2020 NineSwordsMonster
+*
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -19,8 +18,6 @@
  */
 package org.sonar.plugins.pmd.profile;
 
-import java.io.Reader;
-
 import org.sonar.api.profiles.ProfileImporter;
 import org.sonar.api.profiles.RulesProfile;
 import org.sonar.api.rules.ActiveRule;
@@ -34,6 +31,8 @@ import org.sonar.plugins.pmd.xml.PmdProperty;
 import org.sonar.plugins.pmd.xml.PmdRule;
 import org.sonar.plugins.pmd.xml.PmdRuleSet;
 import org.sonar.plugins.pmd.xml.PmdRuleSets;
+
+import java.io.Reader;
 
 public class PmdProfileImporter extends ProfileImporter {
 
@@ -49,7 +48,7 @@ public class PmdProfileImporter extends ProfileImporter {
         for (PmdProperty prop : pmdRule.getProperties()) {
             String paramName = prop.getName();
             if (rule.getParam(paramName) == null) {
-                messages.addWarningText("The property '" + paramName + "' is not supported in the pmd rule: " + pmdRule.getRef());
+                messages.addWarningText("The property '" + paramName + "' is not supported in the pmd p3c rule: " + pmdRule.getRef());
             } else {
                 activeRule.setParameter(paramName, prop.getValue());
             }

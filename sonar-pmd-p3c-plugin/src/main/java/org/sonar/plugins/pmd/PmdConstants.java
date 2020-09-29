@@ -1,8 +1,7 @@
 /*
- * SonarQube PMD Plugin
- * Copyright (C) 2012-2020 SonarSource SA
- * mailto:info AT sonarsource DOT com
- *
+ * SonarQube PMD P3C Plugin
+ * Copyright (C) 2012-2020 NineSwordsMonster
+*
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -20,15 +19,17 @@
 package org.sonar.plugins.pmd;
 
 /**
- * Common configuration parameters for the Sonar-PMD plugin.
+ * Common configuration parameters for the Sonar-PMD-P3C plugin.
  */
 public final class PmdConstants {
-    public static final String PLUGIN_NAME = "PMD";
-    public static final String PLUGIN_KEY = "pmd";
-    public static final String REPOSITORY_KEY = PLUGIN_KEY;
+    public static final String PLUGIN_NAME = "PMD-P3C";
+    public static final String PLUGIN_KEY = "pmd-p3c";
+    public static final String REPOSITORY_KEY = "pmd";
+    public static final String REPOSITORY_P3C_KEY = PLUGIN_KEY;
     public static final String REPOSITORY_NAME = "PMD";
-    public static final String TEST_REPOSITORY_KEY = "pmd-unit-tests";
-    public static final String TEST_REPOSITORY_NAME = "PMD Unit Tests";
+    public static final String REPOSITORY_P3C_NAME = "PMD-P3C";
+    public static final String TEST_REPOSITORY_KEY = "pmd-p3c-unit-tests";
+    public static final String TEST_REPOSITORY_NAME = "PMD P3C Unit Tests";
     public static final String XPATH_CLASS = "net.sourceforge.pmd.lang.rule.XPathRule";
     public static final String XPATH_EXPRESSION_PARAM = "xpath";
     public static final String XPATH_MESSAGE_PARAM = "message";

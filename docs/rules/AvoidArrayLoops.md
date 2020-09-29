@@ -5,7 +5,6 @@
 
 -----
 
-<!-- (c) 2019 PMD -->
 Instead of manually copying data between two arrays, use the efficient Arrays.copyOf or System.arraycopy method instead.
 
 <h2>Noncompliant Code Example</h2>

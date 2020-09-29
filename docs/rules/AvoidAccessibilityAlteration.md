@@ -5,7 +5,6 @@
 
 -----
 
-<!-- (c) 2019 PMD -->
 Methods such as getDeclaredConstructors(), getDeclaredConstructor(Class[]) and setAccessible(), as the interface PrivilegedAction, allow for the runtime alteration of variable, class, or method visibility, even if they are private. This violates the principle of encapsulation.
 
 <h2>Example:</h2>

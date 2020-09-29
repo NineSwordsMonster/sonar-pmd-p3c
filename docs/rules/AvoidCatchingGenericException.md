@@ -5,5 +5,4 @@
 
 -----
 
-<!-- (c) 2019 PMD -->
 Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block.

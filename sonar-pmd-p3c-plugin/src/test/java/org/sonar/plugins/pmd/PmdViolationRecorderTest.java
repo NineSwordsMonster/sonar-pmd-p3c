@@ -1,8 +1,7 @@
 /*
- * SonarQube PMD Plugin
- * Copyright (C) 2012-2020 SonarSource SA
- * mailto:info AT sonarsource DOT com
- *
+ * SonarQube PMD P3C Plugin
+ * Copyright (C) 2012-2020 NineSwordsMonster
+*
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -19,8 +18,6 @@
  */
 package org.sonar.plugins.pmd;
 
-import java.io.File;
-
 import net.sourceforge.pmd.Rule;
 import net.sourceforge.pmd.RuleViolation;
 import org.junit.jupiter.api.Test;
@@ -35,6 +32,8 @@ import org.sonar.api.batch.sensor.SensorContext;
 import org.sonar.api.batch.sensor.issue.NewIssue;
 import org.sonar.api.batch.sensor.issue.NewIssueLocation;
 import org.sonar.api.rule.RuleKey;
+
+import java.io.File;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;

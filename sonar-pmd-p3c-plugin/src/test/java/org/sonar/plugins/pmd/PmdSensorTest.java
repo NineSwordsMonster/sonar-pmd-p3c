@@ -1,8 +1,7 @@
 /*
- * SonarQube PMD Plugin
- * Copyright (C) 2012-2020 SonarSource SA
- * mailto:info AT sonarsource DOT com
- *
+ * SonarQube PMD P3C Plugin
+ * Copyright (C) 2012-2020 NineSwordsMonster
+*
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -19,9 +18,6 @@
  */
 package org.sonar.plugins.pmd;
 
-import java.io.File;
-import java.util.Iterator;
-
 import com.google.common.collect.Iterators;
 import net.sourceforge.pmd.Report;
 import net.sourceforge.pmd.RuleViolation;
@@ -33,6 +29,9 @@ import org.sonar.api.batch.fs.internal.TestInputFileBuilder;
 import org.sonar.api.batch.rule.ActiveRules;
 import org.sonar.api.batch.sensor.SensorContext;
 import org.sonar.api.batch.sensor.SensorDescriptor;
+
+import java.io.File;
+import java.util.Iterator;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
@@ -232,7 +231,7 @@ class PmdSensorTest {
         File file = new File("x");
         fs.add(
                 TestInputFileBuilder.create(
-                        "sonar-pmd-test",
+                        "sonar-pmd-p3c-test",
                         file.getName()
                 )
                         .setLanguage("java")

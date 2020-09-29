@@ -1,8 +1,7 @@
 /*
- * SonarQube PMD Plugin
- * Copyright (C) 2012-2020 SonarSource SA
- * mailto:info AT sonarsource DOT com
- *
+ * SonarQube PMD P3C Plugin
+ * Copyright (C) 2012-2020 NineSwordsMonster
+*
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -19,13 +18,13 @@
  */
 package org.sonar.plugins.pmd.profile;
 
-import java.io.Writer;
-
 import org.sonar.api.profiles.ProfileExporter;
 import org.sonar.api.profiles.RulesProfile;
 import org.sonar.plugins.pmd.PmdConstants;
 import org.sonar.plugins.pmd.xml.PmdRuleSet;
 import org.sonar.plugins.pmd.xml.PmdRuleSets;
+
+import java.io.Writer;
 
 /**
  * ServerSide component that is able to export all currently active PMD rules as XML.

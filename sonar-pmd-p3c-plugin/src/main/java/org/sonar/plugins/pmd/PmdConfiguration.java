@@ -1,8 +1,7 @@
 /*
- * SonarQube PMD Plugin
- * Copyright (C) 2012-2020 SonarSource SA
- * mailto:info AT sonarsource DOT com
- *
+ * SonarQube PMD P3C Plugin
+ * Copyright (C) 2012-2020 NineSwordsMonster
+*
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -19,20 +18,20 @@
  */
 package org.sonar.plugins.pmd;
 
+import net.sourceforge.pmd.Report;
+import net.sourceforge.pmd.renderers.Renderer;
+import net.sourceforge.pmd.renderers.XMLRenderer;
+import org.sonar.api.batch.fs.FileSystem;
+import org.sonar.api.config.Configuration;
+import org.sonar.api.scanner.ScannerSide;
+import org.sonar.api.utils.log.Logger;
+import org.sonar.api.utils.log.Loggers;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
-
-import net.sourceforge.pmd.Report;
-import net.sourceforge.pmd.renderers.Renderer;
-import net.sourceforge.pmd.renderers.XMLRenderer;
-import org.sonar.api.batch.ScannerSide;
-import org.sonar.api.batch.fs.FileSystem;
-import org.sonar.api.config.Configuration;
-import org.sonar.api.utils.log.Logger;
-import org.sonar.api.utils.log.Loggers;
 
 @ScannerSide
 public class PmdConfiguration {
@@ -67,7 +66,7 @@ public class PmdConfiguration {
 
             return configurationFile;
         } catch (IOException e) {
-            throw new IllegalStateException("Fail to save the PMD configuration", e);
+            throw new IllegalStateException("Fail to save the PMD P3C configuration", e);
         }
     }
 
