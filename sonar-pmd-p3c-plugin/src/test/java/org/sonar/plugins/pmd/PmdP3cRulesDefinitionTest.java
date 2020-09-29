@@ -43,7 +43,7 @@ class PmdP3cRulesDefinitionTest {
         assertThat(pdmRepo.name()).isEqualTo(PmdConstants.REPOSITORY_NAME);
         assertThat(pdmRepo.language()).isEqualTo(PmdConstants.LANGUAGE_KEY);
         List<Rule> rules1 = pdmRepo.rules();
-        assertThat(rules1).hasSize(324);
+        assertThat(rules1).hasSize(268);
         for (Rule rule : rules1) {
             assertThat(rule.key()).isNotNull();
             assertThat(rule.internalKey()).isNotNull();
@@ -59,10 +59,10 @@ class PmdP3cRulesDefinitionTest {
             }
         }
 
-        assertThat(p3cRepo.name()).isEqualTo(PmdConstants.REPOSITORY_NAME);
+        assertThat(p3cRepo.name()).isEqualTo(PmdConstants.REPOSITORY_P3C_NAME);
         assertThat(p3cRepo.language()).isEqualTo(PmdConstants.LANGUAGE_KEY);
         List<Rule> rules2 = p3cRepo.rules();
-        assertThat(rules2).hasSize(324);
+        assertThat(rules2).hasSize(56);
         for (Rule rule : rules2) {
             assertThat(rule.key()).isNotNull();
             assertThat(rule.internalKey()).isNotNull();
@@ -105,9 +105,5 @@ class PmdP3cRulesDefinitionTest {
         RulesDefinition.Repository repository = context.repository(PmdConstants.REPOSITORY_KEY);
         Rule xpathRule = Iterables.find(repository.rules(), rule -> rule.key().equals("XPathRule"));
         assertThat(xpathRule.param("xpath").type().type()).isEqualTo(PropertyType.TEXT.name());
-
-        RulesDefinition.Repository repository2 = context.repository(PmdConstants.REPOSITORY_P3C_KEY);
-        Rule xpathRule2 = Iterables.find(repository2.rules(), rule -> rule.key().equals("XPathRule"));
-        assertThat(xpathRule2.param("xpath").type().type()).isEqualTo(PropertyType.TEXT.name());
     }
 }
